@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
+
+
 html {
   font-size: 14px;
 }
@@ -18,7 +21,7 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
@@ -574,6 +577,9 @@ width: 900px;
     background-repeat: no-repeat;
 }
 
+.contact-options {
+    padding-left: 0px;
+}
 .contact-options li {
     padding-bottom: 0.5em;
 }
