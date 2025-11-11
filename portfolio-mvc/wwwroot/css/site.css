@@ -121,41 +121,41 @@ nav {
             text-decoration: none;
         }
 
-/* START Länkar i navbar. Kopplat till JS-styling */
-#navbar a {
-    position: relative;
-    text-decoration: none;
-}
-
-    #navbar a::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        bottom: -0.5em;
-        width: 40px;
-        height: 2px;
-        background-color: currentColor;
-        transform: translateX(-50%);
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
+    /* START Länkar i navbar. Kopplat till JS-styling */
+    #navbar a {
+        position: relative;
+        text-decoration: none;
     }
 
-    #navbar a:hover::after {
+        #navbar a::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -0.5em;
+            width: 40px;
+            height: 2px;
+            background-color: currentColor;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        #navbar a:hover::after {
+            opacity: 1;
+        }
+    /* END Länkar i navbar. Kopplat till JS-styling */
+
+
+    /* START Navbar. Kopplat till JS-styling. */
+    #navbar {
+        box-sizing: border-box;
+        z-index: 1000;
+        position: fixed;
         opacity: 1;
+        transform: translateY(0);
+        transition: top 0.3s ease, opacity 0.3s ease;
     }
-/* END Länkar i navbar. Kopplat till JS-styling */
-
-
-/* START Navbar. Kopplat till JS-styling. */
-#navbar {
-    box-sizing: border-box;
-    z-index: 1000;
-    position: fixed;
-    opacity: 1;
-    transform: translateY(0);
-    transition: top 0.3s ease, opacity 0.3s ease;
-}
-/* END Navbar. Kopplat till JS-styling. */
+    /* END Navbar. Kopplat till JS-styling. */
 
 /* END Navbar & Header */
 
@@ -277,7 +277,7 @@ ul li::marker {
     #hero::after {
         content: '';
         position: absolute;
-        background-image: url('/images/hsand_bg_edited4.jpg');
+        background-image: url('../resources/images/hsand_bg_edited4.jpg');
         height: 100%;
         width: 2560px;
         background-size: cover;
@@ -412,7 +412,7 @@ width: 900px;
     height: 350px;
     background-position-x: center;
     background-size: cover;
-    background-image: url('/images/niklas-edited-vintage.jpg');
+    background-image: url('../resources/images/niklas-edited-vintage.jpg');
     transform: scaleX(-1);
     margin-right: 2em;
 }
@@ -456,7 +456,7 @@ width: 900px;
 
 /* 6. START of Skills section */
 #skills {
-    background-image: url('/images/puzzle-pieces.png');
+    background-image: url('../resources/images/puzzle-pieces.png');
     background-position-x: 70%;
     background-position-y: 25%;
     background-repeat: no-repeat;
@@ -498,7 +498,7 @@ width: 900px;
 
 /* 7. START of Projects */
 #project {
-    background-image: url('/images/plan.png');
+    background-image: url('../resources/images/plan.png');
     background-position-x: 15%;
     background-position-y: 30%;
     background-repeat: no-repeat;
@@ -568,7 +568,7 @@ width: 900px;
 
 /* 8. START of Contact */
 #contact {
-    background-image: url('/images/contact-book.png');
+    background-image: url('../resources/images/contact-book.png');
     background-position-x: 62%;
     background-position-y: 28%;
     background-repeat: no-repeat;
@@ -879,7 +879,7 @@ footer {
     #hero::after {
         content: '';
         position: absolute;
-        background-image: url('/images/hsand_bg_edited4.jpg');
+        background-image: url('/resources/images/hsand_bg_edited4.jpg');
         height: 100%;
         width: 1920px;
         background-size: cover;
@@ -1192,7 +1192,7 @@ footer {
     .hero-left {
         position: absolute;
         top: 34em;
-        left: center;
+        /*left: center;*/
         z-index: -5;
     }
 
@@ -1211,7 +1211,7 @@ footer {
     .hero-right {
         position: absolute;
         top: 6em;
-        left: center;
+        /*left: center;*/
         z-index: 1;
     }
     /* END Top Right*/
@@ -1340,7 +1340,7 @@ footer {
     .hero-left {
         position: absolute;
         top: 34em;
-        left: center;
+        /*left: center;*/
         z-index: -5;
     }
 
@@ -1358,7 +1358,7 @@ footer {
     .hero-right {
         position: absolute;
         top: 6em;
-        left: center;
+        /*left: center;*/
         z-index: 1;
     }
 
