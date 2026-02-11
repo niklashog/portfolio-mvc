@@ -1,70 +1,34 @@
+/*
+ * ============================================
+ * SITE.CSS - TABLE OF CONTENTS
+ * ============================================
+ * 
+ * 0. CSS Reset                        Rad 31
+ * 1. CSS Custom Properties            Rad 45
+ * 2. Global Styling                   Rad 60
+ * 3. Bootstrap Overrides              Rad 168
+ * 4. Navbar                           Rad 178
+ * 5. Hero Section                     Rad 228
+ * 6. About Me                         Rad 370
+ * 7. Skills Section                   Rad 446
+ * 8. Projects                         Rad 481
+ * 9. Contact                          Rad 552
+ * 10. Section Dividers                Rad 643
+ * 11. Footer                          Rad 749
+ * 12. Buttons                         Rad 796
+ * 13. Media Queries                   Rad 835
+ *    - Large Screens (1024-1920px)    Rad 836
+ *    - Tablets (768-908px)            Rad 916
+ *    - Mobile Large (481-768px)       Rad 994
+ *    - Mobile Medium (400-480px)      Rad 1135
+ *    - Mobile Small (max-width 400px) Rad 1291
+ * 
+ * ============================================
+ */
+
+/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
-
-
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-
-}
-
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
-}
-
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
-}
-
-
-
-
-
-
-
-
-
-@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Vollkorn:ital,wght@0,400..900;1,400..900&display=swap');
-
-/* Table of Contents
-
-0. Basic css reset
-1. CSS Custom Properties
-2. Navbar & Header
-3. Global styling
-4. Hero section
-5. About me
-6. Skills / Knowledge
-7. Projects
-8. Contact
-9. Weather
-10. Changing backgrounds
-11. Footer
-12. Buttons
-13. MediaQuerys
-
-Table of Contents */
-
-/* 0. START of Reset */
-
-
+/* 0. CSS RESET */
 *,
 *::before,
 *::after {
@@ -77,96 +41,49 @@ ul,
 ol {
     list-style: none;
 }
-/* END of Reset */
 
-
-/* 1. START CSS Custom Properties */
+/* 1. CSS CUSTOM PROPERTIES */
 :root {
     --primary-color: rgb(50, 45, 57);
     --primary-color-faded: rgb(105, 102, 109);
     --toupe-color: rgb(139, 135, 143);
     --timber-color: rgb(211, 208, 203);
     --accent-color: rgb(133, 112, 171);
-    --background-color: rgb(236, 235, 230); /* ECEBE6 */
+    --background-color: rgb(236, 235, 230);
     --background-colora: rgba(236, 235, 230, 0.95);
-    --hero-city-color: rgb(222, 221, 217); /* DEDDD9 */
+    --hero-city-color: rgb(222, 221, 217);
     --formular-background-color: whitesmoke;
     --formular-active-color: white;
     --body-font: 'IBM Plex Mono', Helvetica, sans-serif;
     --headers-font: Alegreya, Cochin, Cambria, Georgia, Times, 'Times New Roman', serif;
     --hero-cards-font: Vollkorn, Alegreya, serif;
 }
-/* END CSS Custom Properties */
 
-
-/* 2. START Navbar & Header */
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 0;
-    height: 5em;
-    width: 100%;
-    background: var(--background-colora);
-    border-bottom: 1px solid var(--timber-color);
-    z-index: 1;
+/* 2. GLOBAL STYLING */
+html {
+    font-size: 16px;
+    position: relative;
+    min-height: 100%;
 }
 
-    nav ul {
-        display: flex;
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
     }
+}
 
-        nav ul a {
-            font-size: 1.4em;
-            font-family: var(--headers-font);
-            color: var(--primary-color);
-            padding: 0em 0.5em;
-            text-decoration: none;
-        }
+body, html {
+    line-height: 1.5;
+    font-size: 1rem;
+    color: var(--primary-color);
+    background: var(--background-color);
+    font-family: var(--body-font);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
 
-    /* START Länkar i navbar. Kopplat till JS-styling */
-    #navbar a {
-        position: relative;
-        text-decoration: none;
-    }
-
-        #navbar a::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            bottom: -0.5em;
-            width: 40px;
-            height: 2px;
-            background-color: currentColor;
-            transform: translateX(-50%);
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-        }
-
-        #navbar a:hover::after {
-            opacity: 1;
-        }
-    /* END Länkar i navbar. Kopplat till JS-styling */
-
-
-    /* START Navbar. Kopplat till JS-styling. */
-    #navbar {
-        box-sizing: border-box;
-        z-index: 1000;
-        position: fixed;
-        opacity: 1;
-        transform: translateY(0);
-        transition: top 0.3s ease, opacity 0.3s ease;
-    }
-    /* END Navbar. Kopplat till JS-styling. */
-
-/* END Navbar & Header */
-
-
-/* 3. START of Global styling */
-::selection {
-    color: var(--background-color);
-    background: var(--accent-color);
+h2, h3 {
+    font-family: var(--headers-font);
 }
 
 a {
@@ -178,25 +95,16 @@ a {
     a:hover {
         text-decoration: underline;
         text-decoration-color: var(--accent-color);
-        text-underline-offset: 0.4em;
+        text-underline-offset: 0.4rem;
     }
 
     a:active {
         opacity: 0.6;
     }
 
-h2, h3 {
-    font-family: var(--headers-font);
-}
-
-body, html {
-    line-height: 1.5;
-    font-size: 1em;
-    color: var(--primary-color);
-    background: var(--background-color);
-    font-family: var(--body-font);
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+::selection {
+    color: var(--background-color);
+    background: var(--accent-color);
 }
 
 main {
@@ -211,18 +119,18 @@ section {
     flex-direction: row;
     justify-content: center;
     width: 100%;
-    scroll-margin-top: 14em;
+    scroll-margin-top: 14rem;
 }
 
     section:not(#hero) {
-        padding-top: 4em;
-        padding-bottom: 12em;
+        padding-top: 4rem;
+        padding-bottom: 12rem;
     }
 
 article {
     width: 100%;
     max-width: 1920px;
-    margin-bottom: 2em;
+    margin-bottom: 2rem;
 }
 
 ul li::marker {
@@ -230,41 +138,108 @@ ul li::marker {
 }
 
 .section-body {
-    margin-bottom: 2em;
-    max-width: 38em;
+    margin-bottom: 2rem;
+    max-width: 38rem;
 }
 
-.no-split {
+.no-split,
+.vertical-split {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     width: 100%;
-    padding: 1em;
+    padding: 1rem;
 }
 
 .centered-content {
     width: 852px;
 }
 
-.vertical-split {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    width: 100%;
-    padding: 1em;
-}
-
 .linebreak {
     height: 1px;
     background-color: var(--accent-color);
-    width: 12em;
-    margin-top: 0.2em;
-    margin-bottom: 2em;
+    width: 12rem;
+    margin-top: 0.2rem;
+    margin-bottom: 2rem;
 }
 
-/* END of Global styling */
+/* Bootstrap overrides for form elements */
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
 
-/* 4. START of Hero section */
+.form-floating > .form-control-plaintext::placeholder,
+.form-floating > .form-control::placeholder {
+    color: var(--bs-secondary-color);
+    text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder,
+.form-floating > .form-control:focus::placeholder {
+    text-align: start;
+}
+
+/* 3. NAVBAR */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    height: 5rem;
+    width: 100%;
+    background: var(--background-colora);
+    border-bottom: 1px solid var(--timber-color);
+    z-index: 1;
+}
+
+    nav ul {
+        display: flex;
+    }
+
+        nav ul a {
+            font-size: 1.4rem;
+            font-family: var(--headers-font);
+            color: var(--primary-color);
+            padding: 0rem 0.5rem;
+            text-decoration: none;
+        }
+
+#navbar {
+    box-sizing: border-box;
+    z-index: 1000;
+    position: fixed;
+    opacity: 1;
+    transform: translateY(0);
+    transition: top 0.3s ease, opacity 0.3s ease;
+}
+
+    #navbar a {
+        position: relative;
+        text-decoration: none;
+    }
+
+        #navbar a::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -0.5rem;
+            width: 40px;
+            height: 2px;
+            background-color: currentColor;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        #navbar a:hover::after {
+            opacity: 1;
+        }
+
+/* 4. HERO SECTION */
 #hero {
     width: 100vw;
     height: 100vh;
@@ -290,13 +265,6 @@ ul li::marker {
         z-index: -1;
     }
 
-/* 
-
-width: 900px;
-
-*/
-
-
 .hero-top {
     height: 55%;
     display: flex;
@@ -307,16 +275,15 @@ width: 900px;
     z-index: 2;
 }
 
-/* START Top Left*/
 .hero-cards-container {
     display: flex;
     flex-flow: row wrap;
     align-content: center;
     justify-content: center;
     font-weight: bold;
-    width: 13em;
-    height: 20em;
-    font-size: 1.5em;
+    width: 13rem;
+    height: 20rem;
+    font-size: 1.5rem;
 }
 
     .hero-cards-container span {
@@ -324,18 +291,18 @@ width: 900px;
         display: inline-block;
         opacity: 0;
         animation: fallDown 0.45s ease forwards;
-        padding: 0.5em 1.1em;
+        padding: 0.5rem 1.1rem;
     }
 
 @keyframes fallDown {
     0% {
         opacity: 0;
-        transform: translateY(-100px) rotate(0deg); /* Starta utan rotation */
+        transform: translateY(-100px) rotate(0deg);
     }
 
     100% {
         opacity: 1;
-        transform: translateY(0) rotate(var(--rotation, 0deg)); /* Behåll rotationen */
+        transform: translateY(0) rotate(var(--rotation, 0deg));
     }
 }
 
@@ -364,9 +331,7 @@ width: 900px;
     color: var(--primary-color);
     background-color: var(--timber-color);
 }
-/* END Top Left*/
 
-/* START Top Right*/
 .hero-right {
     display: flex;
     flex-flow: wrap column;
@@ -374,40 +339,38 @@ width: 900px;
 
 .my-name-container {
     color: var(--primary-color);
-    width: 22em;
-    margin-left: 2em;
+    width: 22rem;
+    margin-left: 2rem;
     opacity: 1;
 }
 
 .my-name {
     font-family: var(--headers-font);
-    font-size: 5em;
-    line-height: 1.2em;
+    font-weight: 700;
+    font-size: 5rem;
+    line-height: 1.2rem;
     letter-spacing: -2px;
 }
 
 .hero-subheader {
     color: var(--primary-color-faded);
-    margin-top: 2em;
-    margin-left: 2em;
-    width: 22em;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    width: 22rem;
 }
-/* END Top Right*/
 
-/* Bottom */
-
-
-
-
-/* END of Hero section */
-
-
-/* 5. START of About Me */
+/* 5. ABOUT ME */
 #about {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 24em;
+    padding-top: 24rem;
+}
+
+#about,
+#project,
+#project-top {
+    background-color: var(--hero-city-color);
 }
 
 #profile-picture-container {
@@ -417,7 +380,7 @@ width: 900px;
     background-size: cover;
     background-image: url('../resources/images/niklas-edited-vintage.jpg');
     transform: scaleX(-1);
-    margin-right: 2em;
+    margin-right: 2rem;
 }
 
 .clip-path {
@@ -425,16 +388,16 @@ width: 900px;
 }
 
 #about-me-right {
-    max-width: 38em;
+    max-width: 38rem;
 }
 
 .download {
-    margin-top: 1em;
-    margin-right: 0.5em;
+    margin-top: 1rem;
+    margin-right: 0.5rem;
 }
 
 #testamonials {
-    margin-top: 2em;
+    margin-top: 2rem;
     display: flex;
     flex-flow: row;
     justify-content: space-between;
@@ -443,7 +406,7 @@ width: 900px;
 
     #testamonials ul {
         width: 100%;
-        padding: 0em 2em;
+        padding: 0rem 2rem;
     }
 
 .quote {
@@ -455,9 +418,7 @@ width: 900px;
     color: var(--primary-color-faded);
 }
 
-/* END of About Me */
-
-/* 6. START of Skills section */
+/* 6. SKILLS SECTION */
 #skills {
     background-image: url('../resources/images/puzzle-pieces.png');
     background-position-x: 70%;
@@ -471,19 +432,18 @@ width: 900px;
 }
 
 .skills-cv-btn {
-    margin-top: 1em;
+    margin-top: 1rem;
 }
 
-
 .skills-container {
-    height: 12em;
+    height: 12rem;
     width: 100%;
     overflow: hidden;
-    margin-bottom: 3em;
+    margin-bottom: 3rem;
 }
 
     .skills-container ul {
-        padding-left: 1em;
+        padding-left: 1rem;
         display: flex;
         flex-flow: column wrap;
         height: 100%;
@@ -492,14 +452,10 @@ width: 900px;
 
     .skills-container li {
         list-style: disc;
-        padding-bottom: 0.5em;
+        padding-bottom: 0.5rem;
     }
 
-
-
-/* END of Skills section */
-
-/* 7. START of Projects */
+/* 7. PROJECTS */
 #project {
     background-image: url('../resources/images/plan.png');
     background-position-x: 15%;
@@ -515,23 +471,22 @@ width: 900px;
     text-align: right;
 }
 
-/* START of Project Cards */
 .project-card-container {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-end;
-    gap: 3em;
+    gap: 3rem;
 }
 
 .project-card {
     display: flex;
     flex-direction: column;
-    width: 10.5em;
-    height: 18em;
+    width: 10.5rem;
+    height: 18rem;
     background-color: var(--background-color);
     border: 1px solid var(--toupe-color);
     border-radius: 3px;
-    padding: 1em;
+    padding: 1rem;
     cursor: default;
 }
 
@@ -546,30 +501,26 @@ width: 900px;
 
 .project-icon-container {
     height: 35%;
-    font-size: 1.5em;
+    font-size: 1.5rem;
 }
 
 .project-card-header {
     font-family: var(--headers-font);
-    font-size: 1.1em;
+    font-size: 1.1rem;
     font-weight: 500;
-    margin-bottom: 1em;
+    margin-bottom: 1rem;
 }
 
 .project-card-body {
-    font-size: 0.8em;
+    font-size: 0.8rem;
 }
 
 #hotelApp,
 #bankApp {
     cursor: pointer;
 }
-/* END of Project Cards */
 
-
-/* END of Projects */
-
-/* 8. START of Contact */
+/* 8. CONTACT */
 #contact {
     background-image: url('../resources/images/contact-book.png');
     background-position-x: 62%;
@@ -580,25 +531,26 @@ width: 900px;
 .contact-options {
     padding-left: 0px;
 }
-.contact-options li {
-    padding-bottom: 0.5em;
-}
+
+    .contact-options li {
+        padding-bottom: 0.5rem;
+    }
 
 form {
     text-align: left;
-    margin-top: 1.2em;
+    margin-top: 1.2rem;
 }
 
 input,
 textarea {
-    font-size: 0.9em;
+    font-size: 0.9rem;
     color: var(--primary-color);
     font-family: "IBM Plex Mono", "Helvetica", sans-serif;
     border: 1px var(--primary-color) solid;
     background-color: var(--formular-background-color);
-    padding: 0.6em;
+    padding: 0.6rem;
     border-radius: 10px;
-    margin-bottom: 1.6em;
+    margin-bottom: 1.6rem;
 }
 
     input:focus,
@@ -642,108 +594,35 @@ textarea {
     width: 63%;
     min-width: 300px;
     max-width: 100%;
-    min-height: 10em;
+    min-height: 10rem;
 }
 
 #result {
-    margin-left: 2em;
+    margin-left: 2rem;
 }
 
 .obligatory {
-    margin-top: 2em;
-    font-size: 0.8em;
-}
-/* END of Contact */
-
-
-/* 10. START of Changing Backgrounds */
-#about,
-#project,
-#project-top {
-    background-color: var(--hero-city-color);
+    margin-top: 2rem;
+    font-size: 0.8rem;
 }
 
+/* 9. SECTION DIVIDERS */
 #contact-top,
 #skills-top,
 #project-top {
     position: relative;
     width: 100%;
-    height: 6em;
+    height: 6rem;
 }
 
 #footer,
 #footer-top {
     position: relative;
 }
-/* END of Changing Backgrounds */
 
-/* Project divider */
-.skills-divider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-}
-
-    .skills-divider svg {
-        position: relative;
-        display: block;
-        width: calc(100% + 1.3px);
-        height: 22px;
-    }
-
-    .skills-divider .skills-fill {
-        fill: var(--hero-city-color);
-    }
-
-
-/* Contact divider */
-.project-divider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-}
-
-    .project-divider svg {
-        position: relative;
-        display: block;
-        width: calc(254% + 1.3px);
-        height: 40px;
-        transform: rotateY(180deg);
-    }
-
-    .project-divider .project-fill {
-        fill: var(--background-color);
-    }
-/* Skills divider */
-.contact-divider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-}
-
-    .contact-divider svg {
-        position: relative;
-        display: block;
-        width: calc(188% + 1.3px);
-        height: 45px;
-        transform: rotateY(180deg);
-    }
-
-    .contact-divider .contact-fill {
-        fill: var(--hero-city-color);
-    }
-
-
-/* Footer divider */
+.skills-divider,
+.project-divider,
+.contact-divider,
 .footer-divider {
     position: absolute;
     top: 0;
@@ -753,28 +632,60 @@ textarea {
     line-height: 0;
 }
 
+    .skills-divider svg,
+    .project-divider svg,
+    .contact-divider svg,
     .footer-divider svg {
         position: relative;
         display: block;
+    }
+
+    .skills-divider svg {
+        width: calc(100% + 1.3px);
+        height: 22px;
+    }
+
+    .project-divider svg {
+        width: calc(254% + 1.3px);
+        height: 40px;
+        transform: rotateY(180deg);
+    }
+
+    .contact-divider svg {
+        width: calc(188% + 1.3px);
+        height: 45px;
+        transform: rotateY(180deg);
+    }
+
+    .footer-divider svg {
         width: calc(100% + 1.3px);
         height: 17px;
         transform: rotateY(180deg);
     }
 
-    .footer-divider .footer-fill {
-        fill: var(--background-color);
-    }
+.skills-fill {
+    fill: var(--hero-city-color);
+}
 
-/* w. END of Changing Backgrounds */
+.project-fill {
+    fill: var(--background-color);
+}
 
+.contact-fill {
+    fill: var(--hero-city-color);
+}
 
-/* 11. START of Footer */
+.footer-fill {
+    fill: var(--background-color);
+}
+
+/* 10. FOOTER */
 footer {
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: var(--body-font);
-    height: 10em;
+    height: 10rem;
     background-color: var(--timber-color);
 }
 
@@ -807,18 +718,15 @@ footer {
     width: 30%;
 }
 
-/* END of Footer */
-
-
-/* 12. START of Buttons */
+/* 11. BUTTONS */
 .submit-button {
     border: 2px var(--accent-color) solid;
     font-weight: 600;
     color: var(--background-color);
     background-color: var(--accent-color);
     border-radius: 3px;
-    padding: 0.5em 1.5em;
-    font-size: 1em;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
 }
 
     .submit-button:hover {
@@ -836,9 +744,9 @@ footer {
     width: 45px;
     height: 45px;
     color: var(--toupe-color);
-    font-size: 2em;
+    font-size: 2rem;
     cursor: pointer;
-    padding-right: 1em;
+    padding-right: 1rem;
 }
 
     .socials-button:hover {
@@ -849,39 +757,24 @@ footer {
 .socials:active {
     opacity: 0.4;
 }
-/* END of Buttons */
 
-
-
-/* 13. START MEDIAQUERYS */
-
-
-
-@media (min-width: 1024) and (max-width: 1920) {
-
-    /* 3. START of Global styling */
+/* 12. MEDIA QUERIES */
+@media (min-width: 1024px) and (max-width: 1920px) {
     section {
-        scroll-margin-top: 17em;
+        scroll-margin-top: 17rem;
         width: 100%;
     }
 
         section:not(#hero) {
-            padding-top: 4em;
-            padding-bottom: 6em;
+            padding-top: 4rem;
+            padding-bottom: 6rem;
         }
 
-    .no-split {
-        padding: 0em 1em;
-    }
-
+    .no-split,
     .vertical-split {
-        padding: 0em 1em;
+        padding: 0rem 1rem;
     }
 
-    /* END of Global Styling */
-
-
-    /* 4. START of Hero section */
     #hero::after {
         content: '';
         position: absolute;
@@ -895,10 +788,6 @@ footer {
         z-index: -1;
     }
 
-    /* END of Hero section */
-
-    /* 5 START of About me */
-
     #testamonials {
         display: flex;
         flex-flow: row;
@@ -908,65 +797,52 @@ footer {
 
         #testamonials ul {
             width: 100%;
-            padding: 0em 2em;
+            padding: 0rem 2rem;
         }
 
     .quote {
-        font-size: 0.9em;
+        font-size: 0.9rem;
         font-style: italic;
     }
 
     .cite {
-        font-size: 0.9em;
+        font-size: 0.9rem;
     }
-    /* END of About me */
 
-
-    /* w. START of Changing Backgrounds */
     #skills-top,
     #contact-top,
     #project-top {
         width: 100%;
-        height: 5em;
+        height: 5rem;
     }
 
-    /* w. END of Changing Backgrounds */
-
     footer {
-        height: 8em;
+        height: 8rem;
     }
 }
 
 @media (min-width: 768px) and (max-width: 908px) {
-
-    /* 3. START of Global */
     section {
-        scroll-margin-top: 7em;
+        scroll-margin-top: 7rem;
     }
-
-    /* END of Global styling */
-
-    /* START of About me */
 
     #testamon-article {
         display: flex;
         flex-flow: row wrap;
-        width: 41em;
+        width: 41rem;
     }
 
     #testamonials {
-        margin-top: 0em;
+        margin-top: 0rem;
         display: flex;
         flex-flow: column;
         justify-content: center;
     }
 
         #testamonials ul {
-            padding: 1em 0em;
+            padding: 1rem 0rem;
         }
-    /* END of About me */
 
-    /* START of Project Cards */
     #project .centered-content {
         display: flex;
         flex-flow: row wrap;
@@ -975,52 +851,45 @@ footer {
 
     .project-card-container {
         max-width: 480px;
-        gap: 2em;
+        gap: 2rem;
     }
 
     .project-card {
-        width: 10em;
-        height: 16em;
+        width: 10rem;
+        height: 16rem;
     }
 
     .project-icon-container {
         height: 25%;
-        font-size: 1.2em;
+        font-size: 1.2rem;
     }
 
     .project-card-header {
-        font-size: 1.1em;
+        font-size: 1.1rem;
         font-weight: 500;
-        margin-bottom: 1em;
+        margin-bottom: 1rem;
     }
 
     .project-card-body {
-        font-size: 0.75em;
+        font-size: 0.75rem;
     }
-    /* END of Project Cards */
 }
 
-
 @media (min-width: 481px) and (max-width: 768px) {
-
-    /* 2. START Navbar & Header */
-
     section {
-        scroll-margin-top: 7em;
+        scroll-margin-top: 7rem;
     }
 
     nav {
-        height: 5em;
+        height: 5rem;
     }
 
         nav ul a {
-            font-size: 1.3em;
-            padding: 0em 0.5em;
+            font-size: 1.3rem;
+            padding: 0rem 0.5rem;
             text-decoration: none;
         }
-    /* END Navbar & Header */
 
-    /* 4. START of Hero section */
     #hero {
         position: relative;
     }
@@ -1044,7 +913,7 @@ footer {
 
     .hero-left {
         position: absolute;
-        top: 34em;
+        top: 34rem;
         left: center;
         z-index: -5;
     }
@@ -1053,22 +922,19 @@ footer {
         opacity: 0.8;
         width: 95%;
         max-width: 400px;
-        height: 3em;
-        font-size: 1.2em;
+        height: 3rem;
+        font-size: 1.2rem;
     }
 
     .hero-right {
         position: absolute;
-        top: 6em;
+        top: 6rem;
         left: center;
         z-index: 1;
     }
 
-
-    /* START of About Me */
-
     #testamonials {
-        margin-top: 0em;
+        margin-top: 0rem;
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
@@ -1076,25 +942,19 @@ footer {
     }
 
         #testamonials ul {
-            padding: 1em;
+            padding: 1rem;
         }
-    /* END of About Me */
 
-
-    /* START of skills */
     .skills-container {
-        height: 14em;
+        height: 14rem;
         overflow: hidden;
-        margin-bottom: 3em;
+        margin-bottom: 3rem;
     }
 
         .skills-container ul {
             width: 100%;
         }
 
-    /* END  of skills */
-
-    /* START of Project Cards */
     #project .centered-content {
         display: flex;
         flex-flow: row wrap;
@@ -1103,59 +963,49 @@ footer {
 
     .project-card-container {
         max-width: 480px;
-        gap: 2em;
+        gap: 2rem;
     }
 
     .project-card {
-        width: 10em;
-        height: 16em;
+        width: 10rem;
+        height: 16rem;
     }
 
     .project-icon-container {
         height: 25%;
-        font-size: 1.2em;
+        font-size: 1.2rem;
     }
 
     .project-card-header {
         font-family: var(--headers-font);
-        font-size: 1.1em;
+        font-size: 1.1rem;
         font-weight: 500;
-        margin-bottom: 1em;
+        margin-bottom: 1rem;
     }
 
     .project-card-body {
-        font-size: 0.75em;
+        font-size: 0.75rem;
     }
-    /* END of Project Cards */
 
-
-    /* START Section divider */
     #skills-top,
     #project-top,
     #contact-top {
-        height: 3em;
+        height: 3rem;
     }
-    /* END Section divider */
 }
 
-
 @media (min-width: 400px) and (max-width: 480px) {
-
-    /* 2. START of Global styling */
-
     section {
-        scroll-margin-top: 2em;
-        /* 2. END of Global styling */
+        scroll-margin-top: 2rem;
     }
 
-    /* 2. START Navbar & Header */
     nav {
-        height: 5em;
+        height: 5rem;
     }
 
         nav ul a {
-            font-size: 1.3em;
-            padding: 0em 0.5em;
+            font-size: 1.3rem;
+            padding: 0rem 0.5rem;
             text-decoration: none;
         }
 
@@ -1164,9 +1014,6 @@ footer {
         max-width: 480px;
     }
 
-    /* END Navbar & Header */
-
-    /* 4. START of Hero section */
     #hero {
         display: flex;
         flex-flow: row wrap;
@@ -1194,11 +1041,9 @@ footer {
         height: 95%;
     }
 
-    /* START Top Left*/
     .hero-left {
         position: absolute;
-        top: 34em;
-        /*left: center;*/
+        top: 34rem;
         z-index: -5;
     }
 
@@ -1208,24 +1053,18 @@ footer {
         justify-content: center;
         width: 95%;
         max-width: 400px;
-        height: 3em;
-        font-size: 1.2em;
+        height: 3rem;
+        font-size: 1.2rem;
     }
-    /* END Top Left*/
 
-    /* START Top Right*/
     .hero-right {
         position: absolute;
-        top: 6em;
-        /*left: center;*/
+        top: 6rem;
         z-index: 1;
     }
-    /* END Top Right*/
-
-    /* START of About Me */
 
     #testamonials {
-        margin-top: 0em;
+        margin-top: 0rem;
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
@@ -1233,92 +1072,72 @@ footer {
     }
 
         #testamonials ul {
-            padding: 1em;
+            padding: 1rem;
         }
-    /* END of About Me */
 
-    /* START of skills */
     .skills-container {
-        height: 14em;
+        height: 14rem;
         overflow: hidden;
-        margin-bottom: 3em;
+        margin-bottom: 3rem;
     }
 
         .skills-container ul {
             width: 100%;
         }
 
-    /* END  of skills */
-
-
-
-    /* START of Project Cards */
     .project-card-container {
-        gap: 1.5em;
+        gap: 1.5rem;
     }
 
     .project-card {
-        width: 10em;
-        height: 16em;
+        width: 10rem;
+        height: 16rem;
     }
 
     .project-icon-container {
         height: 25%;
-        font-size: 1.2em;
+        font-size: 1.2rem;
     }
 
     .project-card-header {
-        font-size: 1.1em;
+        font-size: 1.1rem;
         font-weight: 500;
-        margin-bottom: 1em;
+        margin-bottom: 1rem;
     }
 
     .project-card-body {
-        font-size: 0.75em;
+        font-size: 0.75rem;
     }
-    /* END of Project Cards */
 
-
-    /* START Background-image removal */
     #skills,
     #project,
     #contact {
         background-image: none;
     }
-    /* START Background-image removal */
 
-    /* START Section divider */
     #skills-top,
     #project-top,
     #contact-top {
-        height: 3em;
+        height: 3rem;
     }
-    /* END Section divider */
-
 }
 
-
 @media (max-width: 400px) {
-
-    /* 2. START Navbar & Header */
     nav {
-        height: 5em;
+        height: 5rem;
     }
 
         nav ul a {
-            font-size: 1.3em;
-            padding: 0em 0.5em;
+            font-size: 1.3rem;
+            padding: 0rem 0.5rem;
             text-decoration: none;
         }
-
-    /* END Navbar & Header */
 
     article {
         width: 100%;
         max-width: 480px;
     }
 
-    /* 4. START of Hero section */
     #hero {
         position: relative;
         z-index: 0;
@@ -1342,11 +1161,9 @@ footer {
         z-index: 2;
     }
 
-    /* START Top Left*/
     .hero-left {
         position: absolute;
-        top: 34em;
-        /*left: center;*/
+        top: 34rem;
         z-index: -5;
     }
 
@@ -1355,25 +1172,18 @@ footer {
         font-weight: bold;
         width: 95%;
         max-width: 400px;
-        height: 3em;
-        font-size: 1.2em;
+        height: 3rem;
+        font-size: 1.2rem;
     }
-    /* END Top Left*/
 
-    /* START Top Right*/
     .hero-right {
         position: absolute;
-        top: 6em;
-        /*left: center;*/
+        top: 6rem;
         z-index: 1;
     }
 
-    /* END Top Right*/
-
-    /* START of About Me */
-
     #testamonials {
-        margin-top: 0em;
+        margin-top: 0rem;
         display: flex;
         flex-flow: row wrap;
         justify-content: space-between;
@@ -1381,61 +1191,51 @@ footer {
     }
 
         #testamonials ul {
-            padding: 1em;
+            padding: 1rem;
         }
-    /* END of About Me */
 
-    /* START of skills */
     .skills-container {
-        height: 14em;
+        height: 14rem;
         overflow: hidden;
-        margin-bottom: 3em;
+        margin-bottom: 3rem;
     }
 
         .skills-container ul {
             width: 100%;
         }
 
-    /* END  of skills */
-
-
-    /* START of Project Cards */
     .project-card-container {
-        gap: 0.9em;
+        gap: 0.9rem;
     }
 
     .project-card {
-        width: 9.5em;
-        height: 16em;
+        width: 9.5rem;
+        height: 16rem;
     }
 
     .project-icon-container {
         height: 25%;
-        font-size: 1.2em;
+        font-size: 1.2rem;
     }
 
     .project-card-header {
         font-family: var(--headers-font);
-        font-size: 1.1em;
+        font-size: 1.1rem;
         font-weight: 500;
-        margin-bottom: 1em;
+        margin-bottom: 1rem;
     }
 
     .project-card-body {
-        font-size: 0.75em;
+        font-size: 0.75rem;
     }
-    /* END of Project Cards */
 
-
-    /* START Background-image removal */
     #skills,
     #project,
     #contact {
         background-image: none;
     }
-    /* START Background-image removal */
 
     #result {
-        margin-left: 0.2em;
+        margin-left: 0.2rem;
     }
 }
